@@ -17,7 +17,13 @@
                 <p class="card-text">Склад: @dish.Consist</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><p><s>@dish.Price</s> @dish.SpecialPrice &#8372;</p></li>
+                @if (@dish.Special == true)
+                {
+                    <li class="list-group-item"><p><s>@dish.Price</s> @dish.SpecialPrice &#8372;</p></li>
+                } else {
+                    <li class="list-group-item"><p>@dish.Price &#8372;</p></li>
+                }
+                
                 <li class="list-group-item"><p>@dish.Weight грам.</p></li>
             </ul>
         </div>
