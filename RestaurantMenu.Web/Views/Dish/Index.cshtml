@@ -1,0 +1,29 @@
+﻿@{
+    IEnumerable<Dish> dishes = ViewData["Dishes"] as IEnumerable<Dish>;
+}
+@{
+    ViewData["Title"] = "Головна сторінка";
+}
+<div class="container">
+    <partial name="_Head" />
+    <div class="text-center">
+        <h1 class="display-5">Акційні пропозиції</h1>
+    </div>
+    
+    <div class="d-flex flex-wrap justify-content-center">
+            @foreach(var dish in dishes)
+            {
+                    <div class="card m-2" style="width: 18rem;">
+                        <img class="card-img-top" src="data:image/jpeg;base64, @dish.ImageBase64" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@dish.Name</h5>
+                            <p class="card-text">Склад: @dish.Consist</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><p><s>@dish.Price</s> @dish.SpecialPrice &#8372;</p></li>
+                            <li class="list-group-item"><p>@dish.Weight грам.</p></li>
+                        </ul>
+                    </div>
+            }
+    </div>
+</div>

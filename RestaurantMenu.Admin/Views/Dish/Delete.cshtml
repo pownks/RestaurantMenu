@@ -1,0 +1,69 @@
+﻿@model RestaurantMenu.Admin.Models.Dish
+
+@{
+    ViewData["Title"] = "Видалення";
+}
+
+<h1>Видалення</h1>
+
+<h3>Ви точно хочете видалити це найменування?</h3>
+<div>
+    <h4>Страва</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Special)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Special)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SpecialPrice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SpecialPrice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Consist)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Consist)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ImageBase64)
+        </dt>
+        <dd class = "col-sm-10">
+            <img class="card-img-top" src="data:image/jpeg;base64, @Model.ImageBase64" alt="Card image cap" style="height:150px;width:auto">
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DishCategory)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DishCategory.Name)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Видалити" class="btn btn-danger" /> |
+        <a asp-action="Index">Назад</a>
+    </form>
+</div>
